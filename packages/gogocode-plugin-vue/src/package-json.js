@@ -28,13 +28,14 @@ module.exports = function (source, api, options) {
 
     try {
         const pkg = JSON.parse(source);
-        updateDepVersion(pkg, 'dependencies', 'vue', '^3.0.0');
+        updateDepVersion(pkg, 'dependencies', 'vue', '^3.3.4');
         updateDepVersion(pkg, 'dependencies', 'vue-router', '^4.0.8');
         updateDepVersion(pkg, 'dependencies', 'vuex', '^4.0.2');
         removeDep(pkg, 'dependencies', 'vue-template-compiler');
         removeDep(pkg, 'devDependencies', 'vue-template-compiler');
-        addDep(pkg, 'devDependencies', '@vue/cli-service', '^5.0.1');
-        addDep(pkg, 'devDependencies', '@vue/cli-plugin-babel', '^5.0.1');
+        // addDep(pkg, 'devDependencies', '@vue/cli-service', '^5.0.1');
+        // addDep(pkg, 'devDependencies', '@vue/cli-plugin-babel', '^5.0.1');
+        addDep(pkg, 'devDependencies', 'vite', '^4.4.5');
         addDep(pkg, 'devDependencies', '@babel/core', '^7.12.16');
         addDep(pkg, 'dependencies', 'tiny-emitter', '^2.1.0');
         addDep(pkg, 'dependencies', 'core-js', '^3.8.3');
