@@ -36,6 +36,8 @@ module.exports = function (source, api, options) {
         // addDep(pkg, 'devDependencies', '@vue/cli-service', '^5.0.1');
         // addDep(pkg, 'devDependencies', '@vue/cli-plugin-babel', '^5.0.1');
         addDep(pkg, 'devDependencies', 'vite', '^4.4.5');
+        addDep(pkg, 'devDependencies', '@vitejs/plugin-vue', '^4.0.0');
+        addDep(pkg, 'devDependencies', '@vitejs/plugin-vue-jsx', '^3.0.0');
         addDep(pkg, 'devDependencies', '@babel/core', '^7.12.16');
         addDep(pkg, 'dependencies', 'tiny-emitter', '^2.1.0');
         addDep(pkg, 'dependencies', 'core-js', '^3.8.3');
