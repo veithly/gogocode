@@ -8,6 +8,7 @@ const popover = require('./popover')
 const scrollbar = require('./scrollbar')
 const subMenu = require('./sub-menu')
 const toolTip = require('./tool-tip')
+const packageJson = require('./package-json');
 
 module.exports = [
     { name: 'import', rule: importRule, test: /\.vue$|\.js$|\.ts$/ },
@@ -20,4 +21,10 @@ module.exports = [
     { name: 'scrollbar', rule: scrollbar, test: /\.vue$/ },
     { name: 'sub-menu', rule: subMenu, test: /\.vue$/ },
     { name: 'tool-tip', rule: toolTip, test: /\.vue$/ },
+    {
+        name: 'package-json',
+        rule: packageJson,
+        test: /package\.json$/,
+        notParseAst: false,
+    },
 ];
