@@ -126,7 +126,7 @@ function addComponents(script, kv) {
     let kvStr = Object.keys(kv)
         .map((key) => (key === kv[key] ? key : `${key}: ${kv[key]}`))
         .join(',');
-    
+
     kvStr = kvStr.length ? kvStr + ',' : '';
 
     if (hasComponents) {
@@ -249,13 +249,13 @@ function addMixin(scriptAst, mixin) {
     } else {
         scriptAst.replace(
             `
-    export default {        
+    export default {
       $$$
     }`,
             `
     export default {
         mixins:[ ${mixin} ],
-      $$$      
+      $$$
     }`
         );
     }
@@ -272,6 +272,16 @@ function forceReplace($, ast, selector, replacer) {
     ast.replaceBy($(ast.generate()).replace(selector, replacer));
 }
 
+function isJsx(ast) {
+    const scriptAst = ast.find('<script></script>');
+    if (scriptAst.rootNode.node.script.attrs.lang &&
+      (scriptAst.rootNode.node.script.attrs.lang === 'jsx' ||
+      scriptAst.rootNode.node.script.attrs.lang === 'tsx')) {
+        return true;
+    }
+    return false;
+}
+
 module.exports = {
     toCamelCase,
     findAnyOf,
@@ -284,4 +294,5 @@ module.exports = {
     addVueImport,
     forceReplace,
     addMixin,
+    isJsx,
 };

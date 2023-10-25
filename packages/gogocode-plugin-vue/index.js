@@ -14,7 +14,7 @@ const transform = function (fileInfo, api, options) {
     const $ = api.gogocode;
 
     if (
-        !/\.vue$|\.js$|\.ts$|\.json$/.test(fileInfo.path) ||
+        !/\.vue$|\.jsx$|\.tsx$|\.js$|\.ts$|\.json$/.test(fileInfo.path) ||
         /node_modules/.test(fileInfo.path)
     ) {
         return sourceCode;
@@ -27,7 +27,7 @@ const transform = function (fileInfo, api, options) {
 
     const includeRules = options['include-rules'] ? options['include-rules'].split(',') : rules.map(r => r.name);
     const excludeRules = options['exclude-rules'] ? options['exclude-rules'].split(',') : [];
-    
+
     const rulesToBeApplied = rules.filter(r => includeRules.includes(r.name) && !excludeRules.includes(r.name));
 
     if(!rulesToBeApplied.length) {
